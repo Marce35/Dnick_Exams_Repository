@@ -1,0 +1,32 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    <div class="container p-1" style="margin-top: 1rem" >
+        {% for listing in listings %}
+            <div class="row" style="border: 1px solid black; margin: 1rem">
+            
+                <div style="display: flex; align-items: center; justify-content: center; padding: 1rem; height: auto">
+                    <div class="card-img" style="width: 50%">
+{#                        <img style="height: 250px; width: 400px; border: 1px solid black" class="card-img" src="{{ MEDIA_URL }} {{ listing.image.url }}" alt="Card image here">#}
+                        <a href="{% url 'view_listing' listing.id %}">
+                            <img style="height: 250px; width: 400px; border: 1px solid black" class="card-img" src="{{ MEDIA_URL }}{{ listing.image.url }}" alt="Card image here">
+                        </a>
+                    </div>
+                    <div class="card-body" style="width: 50%">
+                        <h1>{{ listing.title }}</h1>
+                        <h3 >{{ listing.description }}</h3>
+                        <p>Category: {{ listing.category.name }}</p>
+                        <p>Price: {{ listing.price }}</p>
+                        <hr>
+                        <hr>
+                        <div>
+                            <button class="btn btn-primary" onclick="location.href='{% url 'view_listing' listing.id %}'">View Details --></button>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

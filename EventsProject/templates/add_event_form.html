@@ -1,0 +1,20 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+     <div class="container mt-5" style="align-items: center; justify-content: center; height: 100% ">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h3 class="text-center mb-4">Ask for event</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, incidunt?</p>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_div }}
+                    <!-- Add other form fields here as needed -->
+                    <button type="submit" class="btn btn-dark float-right custom-btn justify-end black mt-5">Add event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

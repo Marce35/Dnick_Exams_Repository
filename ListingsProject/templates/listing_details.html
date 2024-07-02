@@ -1,0 +1,23 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+    <div class="container p-1" style="margin-top: 1rem; width: 80%" >
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem">
+            <div>
+                <h1>{{ listing.title }}</h1>
+            </div>
+            <div>
+                <img style="height: 400px; width: 500px" class="card-img" src="{{ MEDIA_URL }} {{ listing.image.url }}" alt="Card image here">
+            </div>
+            
+            <div style="width: 100%">
+                <p><b>Description:</b> {{ listing.description }} </p>
+                <p>Price: {{ listing.price }}</p>
+                <p>Posted by: {{ listing.user }}</p>
+                <p>Posted on: {{ listing.datetime.date }}</p>
+                
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
